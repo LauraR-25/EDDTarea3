@@ -28,11 +28,9 @@ int Pila::pop(){
     delete temp;
     return valor;
 }
-
 bool Pila::estaVacia() const {
     return cima== nullptr;
 }
-
 int Pila::cimaValor() const{
     if(estaVacia()){
         cerr<< "Error: pila vacía\n";
@@ -41,39 +39,39 @@ int Pila::cimaValor() const{
     return cima->dato;
 }
 
-void Pila::mostrar() const {
-    Nodo* actual = cima;
+void Pila::mostrar() const{
+    Nodo* actual= cima;
     while (actual) {
-        cout<< actual->dato<< " ";
+        cout<< actual-> dato<< " ";
         actual= actual-> siguiente;
     }
-    cout << endl;
+    cout<< endl;
 }
 
-int main() {
+int main(){
     Pila original;
     Pila ordenada;
     Pila auxiliar;
     int n, valor;
-    cout << "Ingrese la cantidad de elementos de la pila: ";
-    cin >> n;
-    cout << "Ingrese los valores de la pila:\n";
+
+    cout<< "Ingrese la cantidad de elementos de la pila: ";
+    cin>> n;
+    cout<< "Ingrese los valores de la pila:\n";
     int* temp = new int[n];
-        for (int i=0; i < n; i++) {
+        for (int i=0; i < n; i++){
             cin >> temp[i];
         }
-            for (int i=n - 1; i >= 0; i--) {
+            for (int i=n - 1; i >= 0; i--){
             original.push(temp[i]);
         }
     delete[] temp;
 
-    cout << "Pila original: ";
+    cout<< "Pila original: ";
     original.mostrar();
 
-    //Transferencia ordenada(sin que un nodo mayor quede encima de uno menor)
     while(!original.estaVacia()){
-        int temp = original.pop();
-        while (!ordenada.estaVacia() && ordenada.cimaValor() > temp){ // Mover de ordenada a auxiliar si su cima es mayor que temp
+        int temp= original.pop();
+        while (!ordenada.estaVacia() && ordenada.cimaValor()> temp){
             auxiliar.push(ordenada.pop());
         }
         ordenada.push(temp);
@@ -83,7 +81,7 @@ int main() {
         }
     }
 
-    cout << "Pila ordenada (menor arriba): ";
+    cout<< "Pila ordenada (menor arriba): ";
     ordenada.mostrar();
 
     return 0;
