@@ -66,6 +66,9 @@ int main(){
         }
     delete[] temp;
 
+
+
+
     cout<< "Pila original: ";
     original.mostrar();
 
@@ -81,7 +84,7 @@ int main(){
         }
     }
 
-    cout<< "Pila ordenada (menor arriba): ";
+    cout<< "Pila ordenada: ";
     ordenada.mostrar();
 
     return 0;
